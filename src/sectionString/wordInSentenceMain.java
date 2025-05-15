@@ -26,15 +26,32 @@ import java.util.Scanner;
 public class wordInSentenceMain {
     public String solution(String str) {
         String answer = "";
-        int m = Integer.MIN_VALUE; // 가장 작은 값으로 초기화
-        String[] s = str.split(" "); // 공백을 기준으로 단어를 나눔
-        for (String x : s) { // 단어를 하나씩 꺼내옴
-            int len = x.length(); // 단어의 길이
 
+        // split 사용
+//        int m = Integer.MIN_VALUE; // 가장 작은 값으로 초기화
+//        String[] s = str.split(" "); // 공백을 기준으로 단어를 나눔
+//        for (String x : s) { // 단어를 하나씩 꺼내옴
+//            int len = x.length(); // 단어의 길이
+//
+//            if (len > m) { // 단어의 길이가 가장 긴 단어보다 길면
+//                m = len; // 길이를 갱신
+//                answer = x; // 단어를 갱신
+//            }
+//        }
+
+        // index, substring 사용
+        int m = Integer.MIN_VALUE, pos; // 가장 작은 값으로 초기화
+        while ((pos = str.indexOf(' ')) != -1) { // 공백을 발견하지 못하면 -1을 반환
+            String tmp = str.substring(0, pos); // 공백을 기준으로 단어를 나눔
+            int len = tmp.length();
             if (len > m) { // 단어의 길이가 가장 긴 단어보다 길면
                 m = len; // 길이를 갱신
-                answer = x; // 단어를 갱신
+                answer = tmp; // 단어를 갱신
             }
+            str = str.substring(pos + 1); // 공백을 기준으로 단어를 나눔
+        }
+        if (str.length() > m) { // 마지막 단어가 가장 긴 단어일 경우
+            answer = str; // 단어를 갱신
         }
         return answer;
     }
