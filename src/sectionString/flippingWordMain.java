@@ -39,14 +39,14 @@ public class flippingWordMain {
         for (String x : str) {
             char[] s = x.toCharArray(); // char 배열로 변환
             // char 배열을 뒤집기 위해 lt와 rt를 설정
-            int lt = 0, rt = x.length() - 1;
+            int lt = 0, rt = x.length() - 1; // lt는 첫번 째 문자, rt는 마지막 문자
 
-            while(lt < rt) { // lt가 rt보다 작을 때까지 반복
+            while (lt < rt) { // lt가 rt보다 작을 때까지 반복
                 char tmp = s[lt]; // lt에 있는 문자 저장
                 s[lt] = s[rt]; // rt에 있는 문자 lt에 저장
                 s[rt] = tmp; // tmp에 저장된 문자 rt에 저장
-                lt++; // lt 증가
-                rt--; // rt 감소
+                lt++; // lt 증가 -> 다음 문자
+                rt--; // rt 감소 -> 이전 문자
             }
             String tmp = String.valueOf(s); // char 배열을 String으로 변환
             answer.add(tmp);
