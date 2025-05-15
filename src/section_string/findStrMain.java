@@ -35,8 +35,8 @@ class findStrMain {
 //        }
         
         // 향상 된 for문 사용
-        for (int i : str.toCharArray()) {
-            if (i == t) { // string을 char 배열로 변환
+        for (char x : str.toCharArray()) { // 리스트나 배열을 순회
+            if (x == t) { // string을 char 배열로 변환
                 answer++;
             }
         }
