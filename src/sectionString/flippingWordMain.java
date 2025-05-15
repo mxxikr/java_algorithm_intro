@@ -31,12 +31,26 @@ import java.util.Scanner;
 public class flippingWordMain {
     public ArrayList<String> solution(int n, String[] str) {
         ArrayList<String> answer = new ArrayList<>();
+//        for (String x : str) {
+//            // StringBuilder는 처음에 만든 객체만 계속 사용
+//            String tmp = new StringBuilder(x).reverse().toString(); // StringBuilder와 reverse 이용해 문자열을 뒤집음
+//            answer.add(tmp); // ArrayList에 추가
+//        }
         for (String x : str) {
-            // StringBuilder는 처음에 만든 객체만 계속 사용
-            String tmp = new StringBuilder(x).reverse().toString(); // StringBuilder와 reverse 이용해 문자열을 뒤집음
-            answer.add(tmp); // ArrayList에 추가
-        }
+            char[] s = x.toCharArray(); // char 배열로 변환
+            // char 배열을 뒤집기 위해 lt와 rt를 설정
+            int lt = 0, rt = x.length() - 1;
 
+            while(lt < rt) { // lt가 rt보다 작을 때까지 반복
+                char tmp = s[lt]; // lt에 있는 문자 저장
+                s[lt] = s[rt]; // rt에 있는 문자 lt에 저장
+                s[rt] = tmp; // tmp에 저장된 문자 rt에 저장
+                lt++; // lt 증가
+                rt--; // rt 감소
+            }
+            String tmp = String.valueOf(s); // char 배열을 String으로 변환
+            answer.add(tmp);
+        }
        return answer;
 }
 
