@@ -1,4 +1,4 @@
-package section_string;
+package sectionString;
 
 import java.util.*;
 
