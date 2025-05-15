@@ -28,8 +28,8 @@ class findStrMain {
         str = str.toUpperCase(); // 대문자로 변환
         t = Character.toUpperCase(t); // 대문자로 변환
 
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == t) { // 대문자로 변환된 문자와 비교
+        for (int i = 0; i < str.length(); i++) { // 문자열 길이만큼 반복
+            if (str.charAt(i) == t) { // string을 인덱스를 이용해 접근
                 answer++;
             }
         }
