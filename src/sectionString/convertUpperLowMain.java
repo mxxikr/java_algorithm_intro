@@ -25,12 +25,26 @@ import java.util.Scanner;
 public class convertUpperLowMain {
     public String solution(String str) {
         String answer = "";
+//        for (char x : str.toCharArray()) { // string 기반 문자 배열 생성
+//            if (Character.isLowerCase(x)) { // x가 소문자일 경우
+//                answer += Character.toUpperCase(x); // 대문자로 변경
+//            } else { // x가 대문자일 경우
+//                answer += Character.toLowerCase(x);
+//            }
+//        }
+        /**
+         * 아스키 넘버 이용해 변환
+         * A 65 ~ 90, a 97 ~ 122
+         * A - a = 32 -> 소문자에서 32 빼면 대문자
+         */
+
         for (char x : str.toCharArray()) { // string 기반 문자 배열 생성
-            if (Character.isLowerCase(x)) { // x가 소문자일 경우
-                answer += Character.toUpperCase(x); // 대문자로 변경
-            } else { // x가 대문자일 경우
-                answer += Character.toLowerCase(x);
+            if (x >= 65 & x <= 90 ) { // 대문자 일 경우
+                answer += (char) (x + 32);
+            } else {
+                answer += (char) (x - 32);
             }
+
         }
         return answer;
     }
