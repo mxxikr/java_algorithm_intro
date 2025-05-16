@@ -28,7 +28,7 @@ import java.util.Scanner;
  * emiT
  * giB
  */
-public class flippingWordMain {
+public class reverseWordMain {
     public ArrayList<String> solution(int n, String[] str) {
         ArrayList<String> answer = new ArrayList<>();
 //        for (String x : str) {
@@ -55,7 +55,7 @@ public class flippingWordMain {
 }
 
     public static void main(String[] args){
-        flippingWordMain T = new flippingWordMain(); // 객체 생성
+        reverseWordMain T = new reverseWordMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         int n = kb.nextInt(); // 숫자 읽어들임
         String[] str = new String[n]; // 문자열 배열 생성
