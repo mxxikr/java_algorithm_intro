@@ -1,6 +1,5 @@
 package sectionString;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -23,7 +22,7 @@ import java.util.Scanner;
  * 예시 출력 1
  * S#T!EG*b@a
  */
-public class reversesParticularWord {
+public class reversesParticularWordMain {
     public String solution(String str) {
         String answer;
         char[] s = str.toCharArray(); // char 배열로 변환
@@ -48,7 +47,7 @@ public class reversesParticularWord {
     }
 
     public static void main(String[] args){
-        reversesParticularWord T = new reversesParticularWord(); // 객체 생성
+        reversesParticularWordMain T = new reversesParticularWordMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         String str = kb.next(); // 문자 읽어들임
 

@@ -19,7 +19,7 @@ import java.util.Scanner;
  * 예시 출력 1
  * YES
  */
-public class palindromeWord {
+public class palindromeWordMain {
         public String solution(String str) {
             String answer = "YES";
 //            str = str.toUpperCase();
@@ -43,7 +43,7 @@ public class palindromeWord {
         }
 
         public static void main(String[] args){
-            palindromeWord T = new palindromeWord(); // 객체 생성
+            palindromeWordMain T = new palindromeWordMain(); // 객체 생성
             Scanner kb = new Scanner(System.in); // 콘솔 입출력
             String str = kb.next(); // 문자열 하나 읽어들임
 

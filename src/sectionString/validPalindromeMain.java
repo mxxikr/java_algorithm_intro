@@ -1,5 +1,4 @@
 package sectionString;
-import javax.print.DocFlavor;
 import java.util.Scanner;
 
 /**
@@ -24,7 +23,7 @@ import java.util.Scanner;
  예시 출력 1
  YES
  */
-public class validPalindrome {
+public class validPalindromeMain {
         public String solution(String str) {
             String answer = "NO";
             str = str.toUpperCase().replaceAll("[^A-Z]", ""); // 대문자로 변환 후 알파벳 이외의 문자 제거
@@ -40,7 +39,7 @@ public class validPalindrome {
         }
 
         public static void main(String[] args){
-            validPalindrome T = new validPalindrome(); // 객체 생성
+            validPalindromeMain T = new validPalindromeMain(); // 객체 생성
             Scanner kb = new Scanner(System.in); // 콘솔 입출력
             String str = kb.nextLine(); // 한 줄 읽어들임
 

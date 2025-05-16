@@ -22,7 +22,7 @@ import java.util.Scanner;
  * kset
  *
  */
-public class deleteDuplicationWord {
+public class deleteDuplicationWordMain {
         public String solution(String str) {
             String answer = "";
 
@@ -36,7 +36,7 @@ public class deleteDuplicationWord {
         }
 
         public static void main(String[] args){
-            deleteDuplicationWord T = new deleteDuplicationWord(); // 객체 생성
+            deleteDuplicationWordMain T = new deleteDuplicationWordMain(); // 객체 생성
             Scanner kb = new Scanner(System.in); // 콘솔 입출력
             String str = kb.next(); // 문자열 하나 읽어들임
 
