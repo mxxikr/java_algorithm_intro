@@ -46,7 +46,7 @@ public class extractNumberMain {
         public static void main(String[] args){
             extractNumberMain T = new extractNumberMain(); // 객체 생성
             Scanner kb = new Scanner(System.in); // 콘솔 입출력
-            String str = kb.next(); // 한 줄 읽어들임
+            String str = kb.next(); // 문자열 읽어들임
 
             System.out.print(T.solution(str)); // 메소드 호출
         }
