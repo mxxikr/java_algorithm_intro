@@ -22,16 +22,25 @@ import java.util.Scanner;
  */
 public class extractNumberMain {
         public int solution(String str) {
-            int answer = 0;
-            // 아스키 번호가 48부터 57까지인 경우는 숫자
-            // 숫자일 경우에
-            for (char x : str.toCharArray()) {
-                if (x >= 48 && x <= 57) { // 숫자일 경우
-                    answer = answer * 10 + (x - 48); // 10을 곱하고 아스키 번호를 빼서 숫자로 변환
-                }
+            // 아스키 번호 이용
+//            int answer = 0;
+//            // 아스키 번호가 48부터 57까지인 경우는 숫자
+//            // 숫자일 경우에
+//            for (char x : str.toCharArray()) {
+//                if (x >= 48 && x <= 57) { // 숫자일 경우
+//                    answer = answer * 10 + (x - 48); // 10을 곱하고 아스키 번호를 빼서 숫자로 변환
+//                }
+//
+//            }
+            String answer = "";
 
+            for (char x : str.toCharArray()) {
+                if (Character.isDigit(x)) {
+                    answer += x; // 숫자일 경우 누적
+                }
             }
-            return answer;
+
+            return Integer.parseInt(answer); // String -> int
         }
 
         public static void main(String[] args){
