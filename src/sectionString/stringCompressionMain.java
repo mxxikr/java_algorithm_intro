@@ -26,7 +26,7 @@ import java.util.Scanner;
  * 예시 출력 2
  * KST3SE2KFK3DJ2G2
  */
-public class StringCompressionMain {
+public class stringCompressionMain {
     public String solution(String str) {
         String answer = "";
         str = str + " "; // 마지막 문자를 비교하기 위해 공백 추가
@@ -47,7 +47,7 @@ public class StringCompressionMain {
     }
 
     public static void main(String[] args) {
-        StringCompressionMain T = new StringCompressionMain(); // 객체 생성
+        stringCompressionMain T = new stringCompressionMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         String str = kb.next(); // 문자열 하나 읽어들임
 
