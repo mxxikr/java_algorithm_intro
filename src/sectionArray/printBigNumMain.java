@@ -24,14 +24,11 @@ import java.util.Scanner;
 public class printBigNumMain {
     public ArrayList<Integer> solution(int n, int[] arr) {
         ArrayList<Integer> answer = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            if (i == 0) {
-                answer.add(arr[i]);
-//                System.out.print(answer.get(i) + " ");
-            } else {
-                if (arr[i - 1] < arr[i]) { // i-1번째 인덱스의 값이 i번째 인덱스의 값보다 작으면
-                    answer.add(arr[i]); // i번째 인덱스의 값을 추가
-                }
+        answer.add(arr[0]);
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) { // i-1번째 인덱스의 값이 i번째 인덱스의 값보다 작으면
+                answer.add(arr[i]); // i번째 인덱스의 값을 추가
             }
         }
         return answer;
