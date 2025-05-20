@@ -24,15 +24,26 @@ import java.util.Scanner;
  * 1 1 2 3 5 8 13 21 34 55
  */
 public class fibonacciSequenceMain {
-    public int[] solution(int n) {
-        int[] answer = new int[n]; // 피보나치 수열을 저장할 배열 생성
-        answer[0] = 1;
-        answer[1] = 1;
+//    public int[] solution(int n) {
+//        int[] answer = new int[n]; // 피보나치 수열을 저장할 배열 생성
+//        answer[0] = 1;
+//        answer[1] = 1;
+//
+//        for (int i = 2; i < n; i++) {
+//            answer[i] = answer[i - 2] + answer[i - 1];
+//        }
+//        return answer;
+//    }
 
-        for (int i = 2; i < n; i++) {
-            answer[i] = answer[i - 2] + answer[i - 1];
+    public void solution(int n) {
+        int a = 1, b = 1, c; // 피보나치 수열의 첫 두 항
+        System.out.print(a + " " + b + " "); // 첫 두 항 출력
+        for (int i = 2; i <= n; i++) { // 2부터 n까지 반복
+            c = a + b; // 다음 항 계산
+            System.out.print(c + " "); // 2 ~ n 번째 항 출력
+            a = b; // a를 b로 업데이트 (이전 항)
+            b = c; // b를 c로 업데이트 (현재 항)
         }
-        return answer;
     }
 
     public static void main(String[] args) {
@@ -40,8 +51,9 @@ public class fibonacciSequenceMain {
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         int n = kb.nextInt(); // 숫자 하나 읽어들임
 
-        for (int x : T.solution(n)) {
-            System.out.print(x + " ");
-        }
+//        for (int x : T.solution(n)) {
+//            System.out.print(x + " ");
+//        }
+        T.solution(n);
     }
 }
