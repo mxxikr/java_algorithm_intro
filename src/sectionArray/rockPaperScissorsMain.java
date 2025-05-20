@@ -38,20 +38,20 @@ import java.util.Scanner;
  * D
  */
 public class rockPaperScissorsMain {
-    public ArrayList<String> solution(int n, int[] arrA, int[] arrB) {
-        ArrayList<String> answer = new ArrayList<>();
+    public String solution(int n, int[] a, int[] b) {
+        String answer = "";
 
         for (int i = 0; i < n; i++) {
-            if (arrA[i] == arrB[i]) { // 비길 경우
-                answer.add("D");
-            } else if (arrA[i] == 1 && arrB[i] == 3) { // A가 가위, B가 보
-                answer.add("A");
-            } else if (arrA[i] == 2 && arrB[i] == 1) { // A가 바위, B가 가위
-                answer.add("A");
-            } else if (arrA[i] == 3 && arrB[i] == 2) { // A가 보, B가 바위
-                answer.add("A");
+            if (a[i] == b[i]) { // 비길 경우
+                answer += "D";
+            } else if (a[i] == 1 && b[i] == 3) { // A가 가위, B가 보
+                answer += "A";
+            } else if (a[i] == 2 && b[i] == 1) { // A가 바위, B가 가위
+                answer += "A";
+            } else if (a[i] == 3 && b[i] == 2) { // A가 보, B가 바위
+                answer += "A";
             } else { // 나머지는 B가 이기는 경우
-                answer.add("B");
+                answer += "B";
             }
         }
 
@@ -62,17 +62,17 @@ public class rockPaperScissorsMain {
         rockPaperScissorsMain T = new rockPaperScissorsMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         int n = kb.nextInt(); // 숫자 하나 읽어들임
-        int[] arrA = new int[n]; // 배열 생성
-        int[] arrB = new int[n]; // 배열 생성
+        int[] a = new int[n]; // 배열 생성
+        int[] b = new int[n]; // 배열 생성
 
 
         for (int i = 0; i < n; i++) {
-            arrA[i] = kb.nextInt(); // 배열에 숫자 입력
+            a[i] = kb.nextInt(); // 배열에 숫자 입력
         }
         for (int i = 0; i < n; i++) {
-            arrB[i] = kb.nextInt(); // 배열에 숫자 입력
+            b[i] = kb.nextInt(); // 배열에 숫자 입력
         }
-        for(String x : T.solution(n, arrA, arrB)) {
+        for(char x : T.solution(n, a, b).toCharArray()) {
             System.out.print(x + " ");
         }
     }
