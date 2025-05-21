@@ -36,8 +36,8 @@ public class getScoreMain {
             }
         }
 
-    return answer;
-}
+        return answer;
+    }
 
     public static void main(String[] args) {
         getScoreMain T = new getScoreMain(); // 객체 생성
