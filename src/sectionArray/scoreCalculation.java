@@ -31,17 +31,16 @@ import java.util.Scanner;
  *  10
  */
 public class scoreCalculation {
-    public ArrayList<Integer> solution(int n, int[] arr) {
-        ArrayList<Integer> answer = new ArrayList<>();
+    public int solution(int n, int[] arr) {
+        int answer = 0;
         int cnt = 0;
 
         for (int i = 0; i < n; i++) {
             if(arr[i] == 1) { // 정답인 경우
                 cnt++; // cnt 증가
-                answer.add(cnt); // cnt를 answer에 추가
+                answer += cnt; // 점수 증가
             } else { // 오답인 경우
                 cnt = 0; // cnt 초기화
-                answer.add(cnt); // cnt를 answer에 추가
             }
         }
 
@@ -58,8 +57,6 @@ public class scoreCalculation {
             arr[i] = kb.nextInt();
         }
 
-        for (int x : T.solution(n, arr)) {
-            System.out.print(x + " ");
-        }
+        System.out.print(T.solution(n, arr));
     }
 }
