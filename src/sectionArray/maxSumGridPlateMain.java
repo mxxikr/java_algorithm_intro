@@ -43,18 +43,18 @@ public class maxSumGridPlateMain {
                 sum1 += arr[i][j]; // 행의 합
                 sum2 += arr[j][i]; // 열의 합
             }
-            answer = Math.max(answer, sum1); // 행의 합과 최대 값 비교
-            answer = Math.max(answer, sum2); // 열의 합과 최대 값 비교
+            answer = Math.max(answer, sum1); // 행의 합과 answer 값 비교해 큰 값을 answer에 저장
+            answer = Math.max(answer, sum2); // 열의 합과 answer 값 비교해 큰 값을 answer에 저장
         }
 
         sum1 = sum2 = 0;
         for (int i = 0; i < n; i++) { // 대각선의 합
             sum1 += arr[i][i]; // 왼쪽 대각선의 합
-            sum2 += arr[i][n - 1 - i]; // 오른쪽 대각선의 합
+            sum2 += arr[i][n - i - 1]; // 오른쪽 대각선의 합
         }
 
-        answer = Math.max(answer, sum1); // 왼쪽 대각선의 합과 최대 값 비교
-        answer = Math.max(answer, sum2); // 오른쪽 대각선의 합과 최대 값 비교
+        answer = Math.max(answer, sum1); // 왼쪽 대각선의 합과 answer 값 비교해 큰 값을 answer에 저장
+        answer = Math.max(answer, sum2); // 오른쪽 대각선의 합과 answer 값 비교해 큰 값을 answer에 저장
 
         return answer;
     }
