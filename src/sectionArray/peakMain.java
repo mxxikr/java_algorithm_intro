@@ -36,20 +36,25 @@ import java.util.Scanner;
  * 10
  */
 public class peakMain {
-    int[] dx = {-1, 0, 1, 0}; // 상하좌우 이동을 위한 x좌표 변화량
-    int[] dy = {0, -1, 0, 1}; // 상하좌우 이동을 위한 y좌표 변화량
+    int[] dx = {-1, 0, 1, 0}; // 위, 오른쪽, 아래, 왼쪽 이동 시 행 변화
+    int[] dy = {0, -1, 0, 1}; // 위, 오른쪽, 아래, 왼쪽 이동 시 열 변화
+    // 현재 위치 i, j에서 dx[0] = -1, dy[0] = 0 -> (i-1, j) -> 위쪽으로 이동
+    // 현재 위치 i, j에서 dx[1] = 0, dy[1] = -1 -> (i, j-1) -> 왼쪽으로 이동
+    // 현재 위치 i, j에서 dx[2] = 1, dy[2] = 0 -> (i+1, j) -> 아래쪽으로 이동
+    // 현재 위치 i, j에서 dx[3] = 0, dy[3] = 1 -> (i, j+1) -> 오른쪽으로 이동
 
     public int solution(int n, int[][] arr) {
         int answer = 0;
 
-        // 2차원 배열을 순회하며 봉우리 지역을 찾음
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        // 2차원 배열 순회
+        for (int i = 0; i < n; i++) { // 행의 증가, 감소는 위아래로 움직이는 방향
+            for (int j = 0; j < n; j++) { // 열의 증가, 감소는 좌우로 움직이는 방향
                 boolean flag = true; // 봉우리 지역인지 확인하는 플래그
                 for (int k = 0; k < 4; k++) { // 상하좌우 탐색
-                    int nx = i + dx[k]; // 새로운 x좌표(행)
-                    int ny = j + dy[k]; // 새로운 y좌표(열)
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && // 경계 체크
+                    int nx = i + dx[k]; // 새로운 행 위치
+                    int ny = j + dy[k]; // 새로운 열 위치
+
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && // 유효한 경계 안에 있는 경우에만 비교
                             arr[nx][ny] >= arr[i][j] && nx >= 0 && nx < n && ny >= 0 && ny < n) { // 주변 지역이 더 크거나 같으면 봉우리 아님
                         flag = false;
                         break; // 더 이상 탐색할 필요 없음
