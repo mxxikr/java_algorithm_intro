@@ -36,7 +36,7 @@ public class continuousNaturalNumSumMain {
         for (int rt = 0; rt < m; rt++) {
             sum+= arr[rt]; // lt부터 rt까지의 합을 구함
 
-            if (sum == n) { // m과 같은지 확인
+            if (sum == n) { // n과 같은지 확인
                 answer++; // 현재 합이 n과 같으면 경우의 수 증가
             }
 
