@@ -31,7 +31,7 @@ import java.util.Scanner;
  * 출력설명
  * (3, 1), (3, 2), (4, 2)와 같이 3가지 경우의 (멘토, 멘티) 짝을 만들 수 있다.
  */
-public class MentoringMain {
+public class mentoringMain {
     public int solution(int n, int m, int[][] arr) {
         int answer = 0;
 
@@ -69,7 +69,7 @@ public class MentoringMain {
     }
 
     public static void main(String[] args) {
-        MentoringMain T = new MentoringMain(); // 객체 생성
+        mentoringMain T = new mentoringMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         int n = kb.nextInt(); // 숫자 하나 읽어들임
         int m = kb.nextInt(); // 숫자 하나 읽어들임
