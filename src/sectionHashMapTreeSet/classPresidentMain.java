@@ -32,8 +32,20 @@ public class classPresidentMain {
             map.put(x, map.getOrDefault(x, 0) + 1); // x의 키 값을 가져오는데 x의 키가 없으면 0을 반환하고 1을 더한 값을 저장
         }
 
+        // map 객체에 특정 키가 존재하는지 확인
+        System.out.println("A의 존재 여부 : " + map.containsKey('A')); // true
+        System.out.println("F의 존재 여부 : " + map.containsKey('F')); // false
+
+        // map 객체의 키의 개수 출력
+        System.out.println("key의 개수는 : " + map.size());
+
+        // map 객체에 특정 키 삭제
+        System.out.println("삭제한 key의 값은 : " + map.remove('A')); // A의 키를 삭제하고 해당 키의 값을 반환
+        System.out.println("삭제한 후 key의 개수는 : " + map.size());
+
         int max = Integer.MIN_VALUE; // 가장 작은 값으로 초기화
-        for (char key : map.keySet()) { // map의 키를 순회
+
+        for (char key : map.keySet()) { // map의 키를 순회하며 탐색
 //            System.out.println(key + " " + map.get(key)); // 키와 해당 키의 값을 출력
             if (map.get(key) > max) {
                 max = map.get(key); // 현재 키의 값이 max보다 크면 max를 갱신
