@@ -26,12 +26,16 @@ import java.util.*;
  */
 public class MaxSalesMain {
     public int solution(int n, int m, int[] arr) {
-        int sum = arr[0] + arr[1] + arr[2]; // 초기 값 설정, 첫 3일의 매출액 합
-        int answer = sum;
+        int answer, sum = 0;
+
+        for (int i = 0; i < m; i++) {
+            sum += arr[i]; // 처음 m일 동안의 매출액을 합산
+        }
+
+        answer = sum;
 
         for (int i = 3; i < n; i++) {
-            sum += arr[i]; // 현재 매출액을 합에 추가
-            sum -= arr[i - m]; // m일 전의 매출액을 빼기
+            sum += (arr[i] - arr[i - m]); // 현재 매출액을 합에 추가하고 m일 전의 매출액을 빼기
             answer = Math.max(answer, sum); // 최대 매출액 갱신
         }
 
