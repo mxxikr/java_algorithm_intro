@@ -40,13 +40,12 @@ public class anagramMain {
         }
 
         for (char x: str2.toCharArray()) {
-            if (map.containsKey(x) && map.get(x) > 0) {
-                map.put(x, map.get(x) - 1); // str2의 문자가 str에 존재하면 해당 키의 값을 1 감소
-            } else {
-                answer = "NO"; // str2의 문자가 str에 없으면 NO로 설정
-                break;
+            if (!map.containsKey(x) || map.get(x) == 0) { // str2의 문자가 str에 없거나 str에서 해당 문자의 개수가 0이면
+                return "NO";
             }
+            map.put(x, map.get(x) - 1); // str2의 문자가 str에 있으면 해당 문자의 개수를 1 감소
         }
+
         return answer;
     }
 
