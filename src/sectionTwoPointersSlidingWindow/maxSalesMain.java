@@ -24,7 +24,7 @@ import java.util.*;
  * 예시 출력 1
  * 56
  */
-public class MaxSalesMain {
+public class maxSalesMain {
     public int solution(int n, int m, int[] arr) {
         int answer, sum = 0;
 
@@ -43,7 +43,7 @@ public class MaxSalesMain {
     }
 
     public static void main(String[] args) {
-        MaxSalesMain T = new MaxSalesMain(); // 객체 생성
+        maxSalesMain T = new maxSalesMain(); // 객체 생성
         Scanner kb = new Scanner(System.in); // 콘솔 입출력
         int n = kb.nextInt(); // 숫자 하나 읽어들임
         int m = kb.nextInt(); // 숫자 하나 읽어들임
