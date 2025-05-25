@@ -26,19 +26,18 @@ import java.util.Scanner;
 public class continuousNaturalNumSumMain {
     public int solution(int n) {
         int answer = 0;
+        int sum = 0;
+        int lt = 1;
 
-        for (int i = 1; i <= n / 2 + 1; i++){ // n을 2로 나눈 몫 + 1까지만 합하면 됨
-            int sum = 0;
+        for (int rt = 1; rt <= n / 2 + 1; rt++){ // n을 2로 나눈 몫 + 1까지만 합하면 됨
+            sum += rt; // lt부터 rt까지의 합을 구함
 
-            for (int j = i; j <= n; j++) { // 현재 숫자부터 지속적으로 더하며 진행
-                sum += j;
+            while (sum > n) {
+                sum -= lt++; // 현재 합이 n보다 크면 왼쪽 포인터를 증가시켜서 합을 줄임
+            }
 
-                if (sum == n) { // 합이 n과 같다면
-                    answer++; // 경우의 수 증가
-                    break; // 더 이상 검사 불필요
-                } else if (sum > n) { // 합이 n을 초과하면
-                    break; // 더 이상 검사 불필요
-                }
+            if (sum == n) { // m과 같은지 확인
+                answer++; // 현재 합이 n과 같으면 경우의 수 증가
             }
         }
 
