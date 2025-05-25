@@ -28,7 +28,7 @@ import java.util.*;
  */
 public class findCommonElementMain {
     public ArrayList<Integer> solution(int n, int m, int[] arr, int[] arr2) {
-        ArrayList<Integer>  answer = new ArrayList<>();
+        ArrayList<Integer> answer = new ArrayList<>();
         int p1 = 0, p2 = 0; // 포인터 초기화
 
         // 두 배열을 오름차순으로 정렬

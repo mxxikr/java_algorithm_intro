@@ -29,7 +29,7 @@ import java.util.Scanner;
  */
 public class combineTwoArrangeMain {
     public ArrayList<Integer> solution(int n, int m, int[] arr, int[] arr2) {
-        ArrayList<Integer>  answer = new ArrayList<>();
+        ArrayList<Integer> answer = new ArrayList<>();
         int p1 = 0, p2 = 0; // 포인터 초기화
 
         while (p1 < n && p2 < m) {
