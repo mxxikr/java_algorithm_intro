@@ -25,19 +25,26 @@ import java.util.Scanner;
  */
 public class continuousNaturalNumSumMain {
     public int solution(int n) {
-        int answer = 0;
-        int sum = 0;
-        int lt = 1;
+        int answer = 0, sum = 0, lt = 0;
+        int m = n / 2 + 1; // n을 2로 나눈 몫 + 1, lt가 m보다 커지면 더 이상 합을 구할 필요 없음
+        int[] arr = new int[m];
 
-        for (int rt = 1; rt <= n / 2 + 1; rt++){ // n을 2로 나눈 몫 + 1까지만 합하면 됨
-            sum += rt; // lt부터 rt까지의 합을 구함
+        for (int i = 0; i < m; i++){ // 1부터 m까지의 자연수 배열 생성
+            arr[i] = i + 1;
+        }
 
-            while (sum > n) {
-                sum -= lt++; // 현재 합이 n보다 크면 왼쪽 포인터를 증가시켜서 합을 줄임
-            }
+        for (int rt = 0; rt < m; rt++) {
+            sum+= arr[rt]; // lt부터 rt까지의 합을 구함
 
             if (sum == n) { // m과 같은지 확인
                 answer++; // 현재 합이 n과 같으면 경우의 수 증가
+            }
+
+            while (sum >= n) { // n보다 같거나 크면 lt를 빼고 lt를 증가 시킴
+                sum -= arr[lt++]; // 현재 합이 n보다 크면 왼쪽 포인터를 증가시켜서 합을 줄임
+                if (sum == n) { // 줄인 후에 다시 n과 같은지 확인
+                    answer++; // 현재 합이 n과 같으면 경우의 수 증가
+                }
             }
         }
 
