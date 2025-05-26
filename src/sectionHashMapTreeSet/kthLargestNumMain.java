@@ -25,7 +25,10 @@ import java.util.*;
 public class kthLargestNumMain {
     public int solution(int n, int k, int[] arr) {
         int answer = -1;
+
+        // TreeSet을 사용하여 중복된 합을 제거하고 정렬
         TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder()); // 내림차순 정렬
+//        TreeSet<Integer> Tset = new TreeSet<>(); // 오름차순 정렬
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -36,7 +39,12 @@ public class kthLargestNumMain {
         }
 
         int cnt = 0; // K번째 큰 수를 찾기 위한 카운트 변수
+//        Tset.remove(143);
+//        System.out.println("size : " + Tset.size()); // 원소의 개수 출력
+//        System.out.println("first : " + Tset.first()); // 오름차순에서는 최소 값, 내림차순에서는 최대 값 출력
+//        System.out.println("last : " + Tset.last()); // 오름차순에서는 최대 값, 내림차순에서는 최소 값 출력
         for (int x : Tset) {
+//            System.out.println(x);
             cnt++; // TreeSet에서 순회하며 카운트 증가
 
             if (cnt == k) { // K번째 큰 수를 찾았을 때
