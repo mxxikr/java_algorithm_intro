@@ -28,7 +28,7 @@ public class postfixMain {
 
         for (char x: str.toCharArray()) {
             if (Character.isDigit(x)) {
-                stack.push(Integer.parseInt(String.valueOf(x)));
+                stack.push(x - 48); // 문자 0의 아스키 코드 값이 48이므로, 숫자로 변환
             } else {
                 int rt = stack.pop(); // 스택에서 오른쪽 피연산자 꺼내기
                 int lt = stack.pop(); // 스택에서 왼쪽 피연산자 꺼내기
@@ -46,7 +46,7 @@ public class postfixMain {
                 }
             }
         }
-        answer = stack.pop();
+        answer = stack.get(0); // 스택에 남아있는 최종 결과 값을 꺼내기
         return answer;
     }
 
