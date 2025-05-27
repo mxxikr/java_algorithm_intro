@@ -1,8 +1,6 @@
 package sectionSortingAndSearching;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 설명
@@ -27,17 +25,25 @@ import java.util.Set;
  */
 public class checkDuplicationMain {
     public String solution(int n, int[] arr) {
-        String answer = " ";
+        String answer = "U";
 
-        Set<Integer> set = new HashSet<>();
-        for (int i : arr) {
-            set.add(i);
-        }
+        // Set을 이용한 중복 검사
+//        Set<Integer> set = new HashSet<>();
+//        for (int i : arr) {
+//            set.add(i);
+//        }
+//
+//        if (set.size() < n) {
+//            return "D"; // 중복된 숫자가 있는 경우
+//        }
 
-        if (set.size() < n) {
-            answer = "D"; // 중복된 숫자가 있는 경우
-        } else {
-            answer = "U"; // 모든 숫자가 유일한 경우
+        // 배열을 정렬한 후 인접한 원소 비교
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                return "D"; // 중복된 숫자가 있는 경우
+            }
         }
 
         return answer;
