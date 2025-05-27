@@ -24,7 +24,7 @@ import java.util.Scanner;
 public class insertSortMain {
     public int[] solution(int n, int[] arr) {
         // 삽입 정렬 : 배열의 두 번째 원소부터 시작하여, 현재 원소를 임시 변수에 저장하고 이전 원소들과 비교하여 적절한 위치에 삽입하는 방식
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) { // 두 번째 원소부터 시작
             int tmp = arr[i], j; // 현재 원소를 임시 변수에 저장
             for (j = i - 1; j >= 0; j--) { // 현재 원소의 이전 원소들과 비교
                 if (arr[j] > tmp) { // 현재 원소보다 큰 경우
