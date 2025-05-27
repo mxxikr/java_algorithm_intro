@@ -38,11 +38,22 @@ public class checkDuplicationMain {
 //        }
 
         // 배열을 정렬한 후 인접한 원소 비교
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
+//
+//        for (int i = 0; i < n - 1; i++) {
+//            if (arr[i] == arr[i + 1]) {
+//                return "D"; // 중복된 숫자가 있는 경우
+//            }
+//        }
 
-        for (int i = 0; i < n - 1; i++) {
-            if (arr[i] == arr[i + 1]) {
-                return "D"; // 중복된 숫자가 있는 경우
+        // HashMap을 이용한 중복 검사
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            if (map.containsKey(arr[i])) { // 이미 존재하는 숫자인 경우
+                return "D";
+            } else {
+                map.put(arr[i], i);
             }
         }
 
