@@ -68,8 +68,8 @@ public class leastRecentlyUsedMain {
                     cache[i] = cache[i - 1]; // 한칸 씩 뒤로 밀기
                 }
             } else {
-                for (int i = pos; i >= 1; i--) {
-                    cache[i] = cache[i - 1]; // Hit인 경우 해당 작업을 맨 앞으로 이동
+                for (int i = pos; i >= 1; i--) { // 작업이 캐시에 존재하면
+                    cache[i] = cache[i - 1]; // 한칸 씩 뒤로 밀기
                 }
             }
             cache[0]= x; // 새로운 작업을 캐시의 맨 앞에 추가
