@@ -23,6 +23,7 @@ import java.util.Scanner;
  */
 public class bubbleSortMain {
     public int[] solution(int n, int[] arr) {
+        // 버블 정렬 : 인접한 두 원소를 비교하여 정렬하는 알고리즘
         for (int i = 0; i < n - 1; i++) { // n-1번 반복
             for (int j = 0; j < n - i - 1; j++) { // i번째 원소까지는 이미 정렬되어 있으므로 n-i-1까지 반복
                 if (arr[j] > arr[j + 1]) { // 현재 원소가 다음 원소보다 크면

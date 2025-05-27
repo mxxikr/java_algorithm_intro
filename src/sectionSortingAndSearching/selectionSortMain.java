@@ -26,6 +26,7 @@ import java.util.Scanner;
  * 5 7 11 13 15 23
  */
 public class selectionSortMain {
+    // 선택 정렬 : 배열에서 가장 작은 값을 찾아서 맨 앞에 있는 값과 교환하는 방식으로 정렬
     public int[] solution(int n, int[] arr) {
         for (int i = 0; i < n - 1; i++) { // 마지막 원소는 이미 정렬되어 있으므로 n-1까지 반복
             int idx = i; // 현재 위치의 인덱스를 저장
