@@ -25,11 +25,15 @@ public class fibonacciRecursionMain {
      **/
     static int[] fibo; // 피보나치 수열을 저장할 배열
     public int DFS(int n) { // n번째 피보나치 수열을 계산하는 재귀 함수
+        if (fibo[n] > 0) {
+            return fibo[n]; // 이미 계산된 값이 있으면 그 값을 반환
+        }
+
         if (n == 1) {
             return fibo[n] = 1; // 피보나치 수열의 첫 번째 항
         } else if (n == 2) {
             return fibo[n] = 1;
-        } else{
+        } else {
             return fibo[n] = DFS(n - 2) + DFS(n - 1); // n번째 항은 (n-2)번째 항과 (n-1)번째 항의 합
         }
     }
