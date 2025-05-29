@@ -25,7 +25,7 @@ public class factorialMain {
      **/
     public int DFS(int n) {
         if (n == 1) { // 종료 조건
-            return 1; // void 타입이므로 return을 사용하여 함수 종료
+            return 1; // n이 1이면 1을 반환 (팩토리얼의 기본값)
         } else{
 //            System.out.print(n); // 재귀 함수가 작동하기 전에 출력 (스택의 상단에 있는 값이 먼저 출력됨)
             return n * DFS(n - 1); // 항상 스택의 상단이 작동한 후 복귀 주소로 돌아감
