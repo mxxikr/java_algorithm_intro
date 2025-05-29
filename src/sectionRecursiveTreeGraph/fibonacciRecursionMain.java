@@ -23,21 +23,24 @@ public class fibonacciRecursionMain {
      * if-else 문을 사용하여 종료 조건을 설정해야 함
      * 재귀 함수는 스택 프레임을 사용함 (매개 변수, 지역 변수, 복귀 주소를 가진 프레임이 생성 됨) -> 백 트레킹 가능
      **/
-    public int DFS(int n) {
+    static int[] fibo; // 피보나치 수열을 저장할 배열
+    public int DFS(int n) { // n번째 피보나치 수열을 계산하는 재귀 함수
         if (n == 1) {
-            return 1;
+            return fibo[n] = 1; // 피보나치 수열의 첫 번째 항
         } else if (n == 2) {
-            return 1;
+            return fibo[n] = 1;
         } else{
-            return DFS(n - 2) + DFS(n - 1); // 피보나치 수열의 재귀 호출
+            return fibo[n] = DFS(n - 2) + DFS(n - 1); // n번째 항은 (n-2)번째 항과 (n-1)번째 항의 합
         }
     }
 
     public static void main(String[] args) {
         fibonacciRecursionMain T = new fibonacciRecursionMain(); // 객체 생성
-        int n = 45; // 피보나치 수열의 총 항의 수
-        for (int i = 1; i <= n; i++) { // 1부터 n까지 반복
-            System.out.print(T.DFS(i) + " "); // 피보나치 수열 출력
+        int n = 10; // 피보나치 수열의 총 항의 수
+        fibo = new int[n + 1]; // 피보나치 수열을 저장할 배열 생성 (0부터 n까지 사용하기 위해 n+1 크기로 생성)
+        T.DFS(n); // 맨 마지막 항까지 한번에 계산
+        for (int i = 1; i <= n; i++) {
+            System.out.print(fibo[i] + " ");
         }
     }
 }
