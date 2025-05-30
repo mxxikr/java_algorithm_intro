@@ -13,11 +13,11 @@ package sectionRecursiveTreeGraph;
  *
  * 가장 짧은 길이는 3번 노드까지의 길이인 1이다.
  */
-class Node {
+class NodeShortDFS {
     int data;
-    Node lt, rt; // 왼쪽 자식과 오른쪽 자식 노드
+    NodeShortDFS lt, rt; // 왼쪽 자식과 오른쪽 자식 노드
 
-    public Node(int val) {
+    public NodeShortDFS(int val) {
         data = val;
         lt = rt = null; // 자식 노드는 초기 값 null로 설정
     }
@@ -25,8 +25,8 @@ class Node {
 
 public class shortPathEndNodeDFSMain {
     // 말단 노드 : 자식이 아예 없는 노드
-    Node root;
-    public int DFS(int L, Node root) {
+    NodeShortDFS root;
+    public int DFS(int L, NodeShortDFS root) {
         if (root.lt == null && root.rt == null) { // 말단 노드에 도달했을 때
             return L;
         } else {
@@ -37,11 +37,11 @@ public class shortPathEndNodeDFSMain {
     public static void main(String[] args) {
         shortPathEndNodeDFSMain tree = new shortPathEndNodeDFSMain();
 
-        tree.root = new Node(1);
-        tree.root.lt = new Node(2);
-        tree.root.rt = new Node(3);
-        tree.root.lt.lt = new Node(4);
-        tree.root.lt.rt = new Node(5);
+        tree.root = new NodeShortDFS(1);
+        tree.root.lt = new NodeShortDFS(2);
+        tree.root.rt = new NodeShortDFS(3);
+        tree.root.lt.lt = new NodeShortDFS(4);
+        tree.root.lt.rt = new NodeShortDFS(5);
         System.out.println(tree.DFS(0, tree.root));
     }
 }
