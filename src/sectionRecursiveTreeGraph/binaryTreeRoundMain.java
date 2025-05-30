@@ -15,11 +15,11 @@ package sectionRecursiveTreeGraph;
  * 후위 순회 출력 : 4 5 2 6 7 3 1
  */
 
-class Node {
+class NodeDFS {
     int data;
-    Node lt, rt; // 왼쪽 자식과 오른쪽 자식 노드
+    NodeDFS lt, rt; // 왼쪽 자식과 오른쪽 자식 노드
 
-    public Node(int val) {
+    public NodeDFS(int val) {
         data = val;
         lt = rt = null; // 자식 노드는 초기 값 null로 설정
     }
@@ -31,10 +31,10 @@ public class binaryTreeRoundMain {
      * 중위 순회 : 왼쪽 자식을 먼저 방문하고 그 다음에 부모 그 다음에 오른쪽 자식
      * 후위 순회 : 왼쪽 자식을 먼저 방문하고 그 다음에 오른쪽 자식 그 다음에 부모
      **/
-    Node root;
+    NodeDFS root;
 
     // 전위 순회 : 부모 -> 왼쪽 -> 오른쪽
-    public void preOrder(Node root) {
+    public void preOrder(NodeDFS root) {
         if (root == null) {
             return;
         } else {
@@ -45,7 +45,7 @@ public class binaryTreeRoundMain {
     }
 
     // 중위 순회 : 왼쪽 -> 부모 -> 오른쪽
-    public void inOrder(Node root) {
+    public void inOrder(NodeDFS root) {
         if (root == null) {
             return; // 노드가 null이면 말단 노드이기 때문에 종료
         } else {
@@ -56,7 +56,7 @@ public class binaryTreeRoundMain {
     }
 
     // 후위 순회 : 왼쪽 -> 오른쪽 -> 부모
-    public void postOrder(Node root) {
+    public void postOrder(NodeDFS root) {
         if (root == null) {
             return; // 노드가 null이면 말단 노드이기 때문에 종료
         } else {
@@ -70,13 +70,13 @@ public class binaryTreeRoundMain {
         binaryTreeRoundMain tree = new binaryTreeRoundMain(); // 객체 생성
 
         // 트리 구조 초기화
-        tree.root = new Node(1); // 루트 노드 생성
-        tree.root.lt = new Node(2); // 왼쪽 자식 노드 생성
-        tree.root.rt = new Node(3); // 오른쪽 자식 노드 생성
-        tree.root.lt.lt = new Node(4); // 왼쪽 자식의 왼쪽 자식 노드 생성
-        tree.root.lt.rt = new Node(5); // 왼쪽 자식의 오른쪽 자식 노드 생성
-        tree.root.rt.lt = new Node(6); // 오른쪽 자식의 왼쪽 자식 노드 생성
-        tree.root.rt.rt = new Node(7); // 오른쪽 자식의 오른쪽 자식 노드 생성
+        tree.root = new NodeDFS(1); // 루트 노드 생성
+        tree.root.lt = new NodeDFS(2); // 왼쪽 자식 노드 생성
+        tree.root.rt = new NodeDFS(3); // 오른쪽 자식 노드 생성
+        tree.root.lt.lt = new NodeDFS(4); // 왼쪽 자식의 왼쪽 자식 노드 생성
+        tree.root.lt.rt = new NodeDFS(5); // 왼쪽 자식의 오른쪽 자식 노드 생성
+        tree.root.rt.lt = new NodeDFS(6); // 오른쪽 자식의 왼쪽 자식 노드 생성
+        tree.root.rt.rt = new NodeDFS(7); // 오른쪽 자식의 오른쪽 자식 노드 생성
 
         System.out.print("전위 순회 출력: ");
         tree.preOrder(tree.root); // 전위 순회 호출
