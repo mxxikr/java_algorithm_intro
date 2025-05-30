@@ -37,9 +37,9 @@ public class binaryTreeRoundMain {
         } else {
 //            System.out.print(root.data + " "); // 전위 순회
             DFS(root.lt); // 왼쪽 자식 노드 방문
-            System.out.print(root.data + " "); // 중위 순회
+//            System.out.print(root.data + " "); // 중위 순회
             DFS(root.rt); // 오른쪽 자식 노드 방문
-//            System.out.print(root.data + " "); // 후위 순회
+            System.out.print(root.data + " "); // 후위 순회
         }
     }
 
