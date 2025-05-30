@@ -24,6 +24,7 @@ class Node {
         lt = rt = null; // 자식 노드는 초기 값 null로 설정
     }
 }
+
 public class binaryTreeRoundMain {
     /**
      * 전위 순회 : 부모를 제일 먼저 방문하고 그 다음에 왼쪽 자식 그 다음에 오른쪽 자식
@@ -88,6 +89,5 @@ public class binaryTreeRoundMain {
         System.out.print("후위 순회 출력: ");
         tree.postOrder(tree.root); // 후위 순회 호출
         System.out.println();
-
     }
 }
