@@ -35,9 +35,9 @@ public class binaryTreeRoundMain {
         if (root == null) {
             return; // 노드가 null이면 말단 노드이기 때문에 종료
         } else {
-            System.out.print(root.data + " "); // 전위 순회
+//            System.out.print(root.data + " "); // 전위 순회
             DFS(root.lt); // 왼쪽 자식 노드 방문
-//            System.out.print(root.data + " "); // 중위 순회
+            System.out.print(root.data + " "); // 중위 순회
             DFS(root.rt); // 오른쪽 자식 노드 방문
 //            System.out.print(root.data + " "); // 후위 순회
         }
