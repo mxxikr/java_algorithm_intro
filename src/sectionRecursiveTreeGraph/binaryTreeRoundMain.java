@@ -31,15 +31,37 @@ public class binaryTreeRoundMain {
      * 후위 순회 : 왼쪽 자식을 먼저 방문하고 그 다음에 오른쪽 자식 그 다음에 부모
      **/
     Node root;
-    public void DFS(Node root) {
+
+    // 전위 순회 : 부모 -> 왼쪽 -> 오른쪽
+    public void preOrder(Node root) {
+        if (root == null) {
+            return;
+        } else {
+            System.out.print(root.data + " "); // 부모 노드 방문
+            preOrder(root.lt); // 왼쪽 자식 노드 방문
+            preOrder(root.rt); // 오른쪽 자식 노드 방문
+        }
+    }
+
+    // 중위 순회 : 왼쪽 -> 부모 -> 오른쪽
+    public void inOrder(Node root) {
         if (root == null) {
             return; // 노드가 null이면 말단 노드이기 때문에 종료
         } else {
-//            System.out.print(root.data + " "); // 전위 순회
-            DFS(root.lt); // 왼쪽 자식 노드 방문
-//            System.out.print(root.data + " "); // 중위 순회
-            DFS(root.rt); // 오른쪽 자식 노드 방문
-            System.out.print(root.data + " "); // 후위 순회
+            inOrder(root.lt); // 왼쪽 자식 노드 방문
+            System.out.print(root.data + " "); // 부모 노드 방문
+            inOrder(root.rt); // 오른쪽 자식 노드 방문
+        }
+    }
+
+    // 후위 순회 : 왼쪽 -> 오른쪽 -> 부모
+    public void postOrder(Node root) {
+        if (root == null) {
+            return; // 노드가 null이면 말단 노드이기 때문에 종료
+        } else {
+            postOrder(root.lt); // 왼쪽 자식 노드 방문
+            postOrder(root.rt); // 오른쪽 자식 노드 방문
+            System.out.print(root.data + " "); // 부모 노드 방문
         }
     }
 
@@ -55,6 +77,17 @@ public class binaryTreeRoundMain {
         tree.root.rt.lt = new Node(6); // 오른쪽 자식의 왼쪽 자식 노드 생성
         tree.root.rt.rt = new Node(7); // 오른쪽 자식의 오른쪽 자식 노드 생성
 
-        tree.DFS(tree.root); // 루트 노드 부터 DFS 탐색 시작
+        System.out.print("전위 순회 출력: ");
+        tree.preOrder(tree.root); // 전위 순회 호출
+        System.out.println();
+
+        System.out.print("중위 순회 출력: ");
+        tree.inOrder(tree.root); // 중위 순회 호출
+        System.out.println();
+
+        System.out.print("후위 순회 출력: ");
+        tree.postOrder(tree.root); // 후위 순회 호출
+        System.out.println();
+
     }
 }
