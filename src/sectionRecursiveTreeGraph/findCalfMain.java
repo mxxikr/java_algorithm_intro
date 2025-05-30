@@ -42,12 +42,13 @@ public class findCalfMain {
             for (int i = 0; i < len; i++) { // 현재 레벨의 노드 개수만큼 반복
                 int x = Q.poll(); // 큐에서 노드 꺼내기
 
-                if (x == e) { // 송아지 위치에 도달한 경우
-                    return L; // 레벨 값 반환
-                }
 
                 for (int j = 0; j < 3; j++) { // 이동할 수 있는 거리만큼 반복
                     int nx = x + dis[j]; // 새로운 위치 계산
+
+                    if (nx == e) { // 송아지 위치에 도달한 경우
+                        return L + 1; // nx는 x의 자식 노드, L은 부모 노드의 레벨이므로 레벨 값에 1을 더해서 반환
+                    }
 
                     if (nx >= 1 && nx <= 10000 && ch[nx] == 0) { // 범위 내에 있고 방문하지 않은 경우
                         ch[nx] = 1; // 방문 처리
