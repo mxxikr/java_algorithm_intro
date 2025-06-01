@@ -23,7 +23,7 @@ import java.util.Scanner;
  * 총 6가지 입니다.
  *
  * 입력 설명
- * 첫째 줄에는 정점의 수 N(2<=N<=20)와 간선의 수 M가 주어진다. 그 다음부터 M줄에 걸쳐 간선의 정보가 주어진다.
+ * 첫째 줄에는 정점의 수 N(1<=N<=20)와 간선의 수 M가 주어진다. 그 다음부터 M줄에 걸쳐 간선의 정보가 주어진다.
  *
  * 출력 설명
  * 총 가짓 수를 출력합니다.
@@ -43,7 +43,7 @@ import java.util.Scanner;
  * 출력 예제1
  * 6
  */
-public class pathExplorationMain {
+public class pathExplorationDFSMain {
     /**
      * 그래프에서 한번 방문한 노드는 다시 방문하지 않도록 해야 함
      * D(1) -> 노드 개수만큼 for문 돌아야함
@@ -78,7 +78,7 @@ public class pathExplorationMain {
     }
 
     public static void main(String[] args) {
-        pathExplorationMain T = new pathExplorationMain();
+        pathExplorationDFSMain T = new pathExplorationDFSMain();
         Scanner kb = new Scanner(System.in);
 
         n = kb.nextInt(); // 정점의 수
