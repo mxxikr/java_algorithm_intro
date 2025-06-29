@@ -30,14 +30,14 @@ public class getCombinationMain {
     static int[] combi;
     static int n, m;
     public void DFS(int L, int s) {
-        for (int i = s; i <=n; i++) {
-            combi[L] = i;
-            if (L == m - 1) { // M개를 모두 뽑았을 경우에는 조합 완성
-                for (int x : combi) {
-                    System.out.print(x + " "); // 조합을 출력
-                }
-                System.out.println(); // 줄 바꿈
-            } else {
+        if (L == m) { // M개 모두 뽑았을 경우 조합 완성
+            for (int x : combi) {
+                System.out.print(x + " "); // 조합 출력
+            }
+            System.out.println(); // 줄 바꿈
+        } else {
+            for (int i = s; i <= n; i++) { // s부터 n까지 반복
+                combi[L] = i; // 현재 레벨에 해당 구슬 번호 저장
                 DFS(L + 1, i + 1); // 다음 레벨로 이동, 다음 시작 번호는 i+1
             }
         }
