@@ -282,7 +282,7 @@
 ### Section - Greedy Algorithm
 - [x] 1. 씨름 선수
 - [x] 2. 회의실 배정
-- [ ] 3. 결혼식
+- [x] 3. 결혼식
 - [ ] 4. 최대 수입 스케줄(PriorityQueue)
 - [ ] 5. 다익스트라 알고리즘
 - [ ] 6. 친구인가(Union & Find 알고리즘)
