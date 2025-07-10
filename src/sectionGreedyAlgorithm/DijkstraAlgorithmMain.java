@@ -69,21 +69,21 @@ public class DijkstraAlgorithmMain {
      *
      */
     static int n, m; // 정점의 수, 간선의 수
-    static ArrayList<ArrayList<Edge>> graph;
-    static int[] dis;
+    static ArrayList<ArrayList<Edge>> graph; // 그래프를 표현하기 위한 ArrayList
+    static int[] dis; // 시작 정점에서 각 정점으로 가는 최소 비용을 저장하는 배열
     public void solution(int v) {
-        PriorityQueue<Edge> pQ = new PriorityQueue<>();
+        PriorityQueue<Edge> pQ = new PriorityQueue<>(); // 비용이 작은 순서대로 정렬하기 위한 우선순위 큐
         pQ.offer(new Edge(v, 0)); // 시작 정점과 비용 0
-        dis[v] = 0;
+        dis[v] = 0; // 시작 정점에서 시작 정점으로 가는 비용은 0
         while(!pQ.isEmpty()){ // 우선순위 큐가 비어있지 않으면
             Edge tmp = pQ.poll(); // 비용이 가장 작은 정점 꺼내기
             int now = tmp.vex; // 현재 정점
             int nowCost = tmp.cost; // 현재 정점까지의 비용
             if(nowCost > dis[now]) continue; // 현재 정점까지의 비용이 이미 기록된 비용보다 크면 무시
-            for(Edge ob : graph.get(now)){
-                if(dis[ob.vex] > nowCost+ob.cost){
-                    dis[ob.vex] = nowCost+ob.cost;
-                    pQ.offer(new Edge(ob.vex, nowCost + ob.cost));
+            for(Edge ob : graph.get(now)){ // 현재 정점에서 연결된 모든 정점에 대해
+                if(dis[ob.vex] > nowCost + ob.cost){ // 현재 정점까지의 비용 + 연결된 정점까지의 비용이 더 작으면
+                    dis[ob.vex] = nowCost + ob.cost;  // 최소 비용 갱신
+                    pQ.offer(new Edge(ob.vex, nowCost + ob.cost)); // 우선순위 큐에 연결된 정점과 갱신된 비용을 추가
                 }
             }
         }
@@ -94,19 +94,20 @@ public class DijkstraAlgorithmMain {
         Scanner kb = new Scanner(System.in);
         n = kb.nextInt(); // 정점의 수
         m = kb.nextInt(); // 간선의 수
-        graph = new ArrayList<ArrayList<Edge>>();
+        graph = new ArrayList<ArrayList<Edge>>(); // Edge 객체를 담을 ArrayList 생성
 
         for(int i = 0; i <= n; i++) {
-            graph.add(new ArrayList<Edge>());
+            graph.add(new ArrayList<Edge>()); // 정점의 수만큼 ArrayList<Edge> 생성
         }
 
         dis = new int[n + 1]; // 시작 정점에서 각 정점으로 가는 최소 비용
-        Arrays.fill(dis, Integer.MAX_VALUE); // 초기화
+        Arrays.fill(dis, Integer.MAX_VALUE); // 모든 정점의 거리를 무한대로 초기화
+
         for (int i = 0; i < m; i++) {
             int a = kb.nextInt(); // 시작 정점
             int b = kb.nextInt(); // 도착 정점
             int c = kb.nextInt(); // 비용(가중치)
-            graph.get(a).add(new Edge(b, c)); // 방향 그래프이므로 a에서 b로 가는 간선 추가
+            graph.get(a).add(new Edge(b, c)); // a에서 b로 가는 간선 추가 (c는 가중치)
         }
 
         T.solution(1); // 1번 정점에서 시작
