@@ -1,7 +1,6 @@
 package sectionGreedyAlgorithm;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -42,19 +41,19 @@ import java.util.Scanner;
  * 예시 출력 1
  * 196
  */
-class WonderEdge implements Comparable<WonderEdge> {
+class WonderKruskalEdge implements Comparable<WonderKruskalEdge> {
     public int v1; // 시작 정점
     public int v2; // 끝 정점
     public int cost; // 간선 가중치
 
-    WonderEdge(int v1, int v2, int cost) {
+    WonderKruskalEdge(int v1, int v2, int cost) {
         this.v1 = v1;
         this.v2 = v2;
         this.cost = cost;
     }
 
     @Override
-    public int compareTo(WonderEdge ob) { // 간선 가중치 기준으로 오름차순 정렬
+    public int compareTo(WonderKruskalEdge ob) { // 간선 가중치 기준으로 오름차순 정렬
         return this.cost - ob.cost; // 양수면 this가 크고, 음수면 ob가 크고, 0이면 같음
     }
 }
@@ -93,7 +92,7 @@ public class WonderLandMSTKruskalMain {
         int n = kb.nextInt(); // 도시의 개수
         int m = kb.nextInt(); // 도로의 개수
         unf = new int[n + 1]; // 1부터 n까지의 도시 번호를 사용하므로 n+1 크기의 배열 생성
-        ArrayList<WonderEdge> arr = new ArrayList<>(); // 간선 정보를 저장할 리스트
+        ArrayList<WonderKruskalEdge> arr = new ArrayList<>(); // 간선 정보를 저장할 리스트
 
         for (int i = 1; i <= n; i++) {
             unf[i] = i;
@@ -103,13 +102,13 @@ public class WonderLandMSTKruskalMain {
             int a = kb.nextInt(); // 시작 도시
             int b = kb.nextInt(); // 끝 도시
             int c = kb.nextInt(); // 유지 비용
-            arr.add(new WonderEdge(a, b, c)); // 간선 정보 추가
+            arr.add(new WonderKruskalEdge(a, b, c)); // 간선 정보 추가
         }
 
         int answer = 0; // 최소 비용 초기화
         int cnt = 0; // 연결된 간선의 개수 초기화
         Collections.sort(arr); // 간선을 가중치 기준으로 오름차순 정렬
-        for (WonderEdge ob : arr) {
+        for (WonderKruskalEdge ob : arr) {
             if (cnt == n - 1) { // 모든 도시가 연결되었으면 종료
                 break;
             }
