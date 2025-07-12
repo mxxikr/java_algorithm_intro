@@ -31,6 +31,7 @@ public class maxIncreasingSubsequenceMain {
         dy = new int[arr.length]; // 배열 초기화
         dy[0] = 1; // 첫 번째 원소는 항상 부분 증가수열의 길이가 1
 
+        answer = dy[0]; // 길이 1 값이 들어 올 경우를 위해 초기값 설정
         for(int i = 1; i < arr.length; i++) {
             int max = 0; // 부분 증가수열의 길이가 최소 1이기 때문에 0으로 초기화
             for (int j = i -1; j >= 0; j--) {
